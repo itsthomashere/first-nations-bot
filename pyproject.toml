@@ -16,6 +16,7 @@ nltk = "^3.8.1"
 streamlit-option-menu = "^0.3.6"
 langchain = "^0.0.352"
 pandas = "^2.1.4"
+span-marker = "^1.5.0"
 
 
 [build-system]
