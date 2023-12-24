@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit-option-menu import option_menu
+from streamlit_option_menu import option_menu
 
 from sqlalchemy import create_engine, text
 import pandas as pd
