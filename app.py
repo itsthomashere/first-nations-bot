@@ -1,12 +1,18 @@
-import streamlit as st
-from streamlit_option_menu import option_menu
-
-from sqlalchemy import create_engine, text
 import pandas as pd
+from sqlalchemy import create_engine, text
+import streamlit as st
 
-from langchain.chat_models import ChatOpenAI
-from langchain.chains import QAGenerationChain
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain.chains import QAGenerationChain
+from langchain.chat_models import ChatOpenAI
+
+from llama_index import Document, ServiceContext, VectorStoreIndex, set_global_service_context, StorageContext, load_index_from_storage
+from llama_index.embeddings import OpenAIEmbedding
+from llama_index.indices.postprocessor import SimilarityPostprocessor
+from llama_index.llms import OpenAI
+from llama_index.node_parser import SentenceSplitter
+from llama_index.query_engine import RetrieverQueryEngine
+from llama_index.retrievers import VectorIndexRetriever
 
 # def qa_main():
 #     st.file_uploader("Upload a PDF file", type="pdf")
