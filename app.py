@@ -53,3 +53,5 @@ nav_bar = option_menu(
     orientation="horizontal",
     styles=None,
 )
+
+executable[nav_bar]()
