@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "first-nations-assistant"
+version = "0.1.0"
+description = ""
+authors = ["itsthomashere <thomasadam.leigh@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+psycopg2-binary = "^2.9.9"
+sqlalchemy = "^2.0.23"
+streamlit = "^1.29.0"
+openai = "^1.6.1"
+llama-index = "^0.9.21"
+nltk = "^3.8.1"
+streamlit-option-menu = "^0.3.6"
+langchain = "^0.0.352"
+pandas = "^2.1.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
