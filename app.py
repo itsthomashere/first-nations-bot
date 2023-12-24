@@ -36,10 +36,13 @@ def connect_to_table() -> None:
 connect_to_table()
 st.title("Research Assistant 2.0")
 
+qa_bot = "Q&A Bot"
+chatbot = "Chatbot"
+
 
 nav_bar = option_menu(
     menu_title=None,
-    options=["Q&A Bot", "Chatbot"],
+    options=[qa_bot, chatbot],
     icons=["suit-heart-fill", "piggy-bank"],  # https://icons.getbootstrap.com/
     menu_icon="menu-up",
     default_index=0,
@@ -48,8 +51,7 @@ nav_bar = option_menu(
 )
 
 executable = {
-    "Q&A Chatbot": qa_main(),
-    "Chatbot": chat_main(),
+    qa_bot: qa_main,
+    chatbot: chat_main,
 }
-
 executable[nav_bar]()
