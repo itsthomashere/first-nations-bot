@@ -39,10 +39,6 @@ st.title("Research Assistant 2.0")
 qa_bot = "Q&A Bot"
 chatbot = "Chatbot"
 
-executable = {
-    qa_bot: qa_main(),
-    chatbot: chat_main(),
-}
 
 nav_bar = option_menu(
     menu_title=None,
@@ -53,5 +49,10 @@ nav_bar = option_menu(
     orientation="horizontal",
     styles=None,
 )
+
+executable = {
+    qa_bot: qa_main(),
+    chatbot: chat_main(),
+}
 
 executable[nav_bar]()
