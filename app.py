@@ -53,3 +53,26 @@ retriever = VectorIndexRetriever(
 index=index,
 similarity_top_k=5  # Modify this value to change top K retrievals
 )
+instructions = " Present your answer in bullet form and provide the page reference after each statement."
+
+query = st.chat_input("Enter a question: ")
+if query is not None:
+    retrieved_nodes = retriever.retrieve(query + instructions)
+    st.write(retrieved_nodes)
+    sources = [node.metadata.get('document_id') for node in retrieved_nodes]
+    # sources = [node.metadata.get('document_id', 'Unknown Source') for node in retrieved_nodes]
+
+    response = index.as_query_engine(streaming=True).query(query + instructions)
+    # response = query_engine.query(query + instructions)
+    response.print_response_stream()
+    st.write(response)
+    for node in response.source_nodes:
+        print("-----")
+        text_fmt = node.node.get_content().strip().replace("\n", " ")[:1000]
+        # print(f"Text:\t {text_fmt} ...")
+        # print(f"Metadata:\t {node.node.metadata}")
+        # print out the page number and the metadata
+        st.write(f"Title:\t {node.node.metadata.get('title')}")
+        st.write(f"Page:\t {node.node.metadata.get('page_number')}")
+        st.write(f"Score:\t {node.score:.3f}")
+    # print(response.get_formatted_sources())
