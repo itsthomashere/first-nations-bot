@@ -8,6 +8,12 @@ from langchain.chat_models import ChatOpenAI
 from langchain.chains import QAGenerationChain
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
+def qa_main():
+    st.file_uploader("Upload a PDF file", type="pdf")
+
+def chat_main():
+    st.chat_input("Send a message...", key="user_input")
+
 def connect_to_table() -> None:
     conn = st.connection("digitalocean", type="sql")
     with conn.session as s:
@@ -30,4 +36,20 @@ def connect_to_table() -> None:
 connect_to_table()
 st.title("Research Assistant 2.0")
 
-user_input = st.chat_input("Send a message...", key="user_input")
+qa_bot = "Q&A Bot"
+chatbot = "Chatbot"
+
+executable = {
+    qa_bot: qa_main(),
+    chatbot: chat_main(),
+}
+
+nav_bar = option_menu(
+    menu_title=None,
+    options=[qa_bot, chatbot],
+    icons=["suit-heart-fill", "piggy-bank"],  # https://icons.getbootstrap.com/
+    menu_icon="menu-up",
+    default_index=0,
+    orientation="horizontal",
+    styles=None,
+)
