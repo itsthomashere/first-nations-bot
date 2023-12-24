@@ -40,4 +40,16 @@ title = st.markdown(
     f"<h1 style='text-align: center;'>{title}</h1>", unsafe_allow_html=True
 )
 
+# define LLM
+service_context = ServiceContext.from_defaults(
+    llm=OpenAI(model="gpt-4", temperature=1.0, max_tokens=700)
+)
+
+# Load knowledge base from disk
 index = load_index_from_storage(StorageContext.from_defaults(persist_dir="storage"))
+
+# Configure retriever
+retriever = VectorIndexRetriever(
+index=index,
+similarity_top_k=5  # Modify this value to change top K retrievals
+)
