@@ -33,7 +33,7 @@ def connect_to_table() -> None:
             st.write("Table 'pdf_content' does not exist.")
 
 
-connect_to_table()
+# connect_to_table()
 
 title = "Research Assistant 2.0"
 title = st.markdown(
