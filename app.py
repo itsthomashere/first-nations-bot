@@ -14,15 +14,6 @@ from llama_index.node_parser import SentenceSplitter
 from llama_index.query_engine import RetrieverQueryEngine
 from llama_index.retrievers import VectorIndexRetriever
 
-# def qa_main():
-#     st.file_uploader("Upload a PDF file", type="pdf")
-
-# def chat_main():
-#     st.chat_input("Send a message...", key="user_input")
-
-# def qa_list_main():
-#     st.write("Sample Questions")
-
 def connect_to_table() -> None:
     conn = st.connection("digitalocean", type="sql")
     with conn.session as s:
@@ -48,27 +39,3 @@ title = "Research Assistant 2.0"
 title = st.markdown(
     f"<h1 style='text-align: center;'>{title}</h1>", unsafe_allow_html=True
 )
-
-
-
-# qa_bot = "Q&A Bot"
-# chatbot = "Chatbot"
-# qa_list = "Sample Questions"
-
-
-# nav_bar = option_menu(
-#     menu_title=None,
-#     options=[qa_bot, chatbot, qa_list],
-#     icons=["suit-heart-fill", "piggy-bank", "piggy-bank"],  # https://icons.getbootstrap.com/
-#     menu_icon="menu-up",
-#     default_index=1,
-#     orientation="horizontal",
-#     styles=None,
-# )
-
-# executable = {
-#     qa_bot: qa_main,
-#     chatbot: chat_main,
-#     qa_list: qa_list_main,
-# }
-# executable[nav_bar]()
