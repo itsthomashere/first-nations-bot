@@ -39,3 +39,5 @@ title = "Research Assistant 2.0"
 title = st.markdown(
     f"<h1 style='text-align: center;'>{title}</h1>", unsafe_allow_html=True
 )
+
+index = load_index_from_storage(StorageContext.from_defaults(persist_dir="storage"))
