@@ -45,7 +45,7 @@ nav_bar = option_menu(
     options=[qa_bot, chatbot],
     icons=["suit-heart-fill", "piggy-bank"],  # https://icons.getbootstrap.com/
     menu_icon="menu-up",
-    default_index=0,
+    default_index=1,
     orientation="horizontal",
     styles=None,
 )
